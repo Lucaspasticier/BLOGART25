@@ -7,4 +7,4 @@ $libThem = ctrlSaisies($_POST['libThem']);
 sql_insert('THEMATIQUE', 'libThem', "'$libThem'");
 
 
-header('Location: ../../views/backend/statuts/list.php');
+header('Location: ../../views/backend/thematiques/list.php');

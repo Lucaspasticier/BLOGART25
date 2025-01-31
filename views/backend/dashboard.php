@@ -60,7 +60,7 @@ include '../../header.php';
                             <td>
                                 <a href="/views/backend/thematiques/list.php" class="btn btn-primary">List</a>
                                 <a href="/views/backend/thematiques/create.php" class="btn btn-success">Create</a>
-                                <a href="/views/backend/thematiques/edit.php" class="btn btn-warning disabled">Edit</a>
+                                <a href="/views/backend/thematiques/edit.php" class="btn btn-warning">Edit</a>
                                 <a href="/views/backend/thematiques/delete.php" class="btn btn-danger disabled">Delete</a>
                             </td>
                             <td></td>

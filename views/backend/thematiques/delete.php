@@ -20,9 +20,9 @@ if (isset($_GET['numThem'])) {
        <div class="col-md-12">
            <h1>Suppression thematique</h1>
            <?php if ($countnumThem > 01) : ?>
-                         Impossible de supprimer cette thematique car elle est utilisées par <?php echo $countnumThem; ?> articles.
+                         Impossible de supprimer cette thematique car elle est utilisées par <?php echo $libThem; ?> .
                     <?php else : ?>
-                         Impossible de supprimer cette thematique car elle est utilisée par <?php echo $countnumThem; ?> article.
+                         Voulez-vous confirmer la suppression de <?php echo $libThem; ?> ?
             <?php endif; ?>
        </div>
        <div class="col-md-12">
