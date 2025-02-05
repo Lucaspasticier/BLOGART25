@@ -3,7 +3,7 @@ include '../../../header.php'; // contains the header and call to config.php
 
 //Load all statuts
 $Arts = sql_select("ARTICLE", "*");
-$MotCles = sql_select("MOTCLE", "*");
+$MotCles = sql_select("THEMATIQUE", "*");
 ?>
 
 <!-- Bootstrap default layout to display all statuts in foreach -->
@@ -33,11 +33,11 @@ $MotCles = sql_select("MOTCLE", "*");
                             <td><?php echo($Art['libTitrArt']); ?></td>
                             <td><?php echo($Art['libChapoArt']); ?></td>
                             <td><?php echo($Art['libAccrochArt']); ?></td>
-                            <td><?php echo($MotCle['']); ?></td>
-                            <td><?php echo($Art['libSsTitr1Art']); ?></td>
+                            <td><?php echo($MotCles['']); ?></td>
+                            <td><?php echo($Art['numThem']); ?></td>
                             <td>
                                 <a href="edit.php?numArt=<?php echo($Art['numArt']); ?>" class="btn btn-primary">Edit</a>
-                                <a href="delete.php?numArt=<?php echo($Art['numArt']); ?>" class="btn btn-danger">Delete</a>
+                                <a href="delete.php?numArt=<?php echo($Art['numArt']); ?>" class="btn btn-danger">Delete</a>     
                             </td>
                         </tr>
                     <?php } ?>
@@ -48,4 +48,5 @@ $MotCles = sql_select("MOTCLE", "*");
     </div>
 </div>
 <?php
+
 include '../../../footer.php'; // contains the footer
