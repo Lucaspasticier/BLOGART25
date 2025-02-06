@@ -2,7 +2,7 @@
 include '../../../header.php'; // contains the header and call to config.php
 
 //Load all statuts
-$thematiques = sql_select("THEMATIQUE", "*");
+$keywords = sql_select("motcle", "*");
 ?>
 
 <!-- Bootstrap default layout to display all statuts in foreach -->
@@ -19,13 +19,15 @@ $thematiques = sql_select("THEMATIQUE", "*");
                     </tr>
                 </thead>
                 <tbody>
-                    <?php foreach($thematiques as $thematique){ ?>
+                    <?php foreach ($keywords as $motcle) { ?>
                         <tr>
-                            <td><?php echo($thematique['numThem']); ?></td>
-                            <td><?php echo($thematique['libThem']); ?></td>
+                            <td><?php echo ($motcle['numMotCle']); ?></td>
+                            <td><?php echo ($motcle['libMotCle']); ?></td>
                             <td>
-                                <a href="edit.php?numThem=<?php echo($thematique['numThem']); ?>" class="btn btn-primary">Edit</a>
-                                <a href="delete.php?numThem=<?php echo($thematique['numThem']); ?>" class="btn btn-danger">Delete</a>
+                                <a href="edit.php?numMotCle=<?php echo ($motcle['numMotCle']); ?>"
+                                    class="btn btn-primary">Edit</a>
+                                <a href="delete.php?numMotCle=<?php echo ($motcle['numMotCle']); ?>"
+                                    class="btn btn-danger">Delete</a>
                             </td>
                         </tr>
                     <?php } ?>
@@ -36,4 +38,4 @@ $thematiques = sql_select("THEMATIQUE", "*");
     </div>
 </div>
 <?php
-include '../../../footer.php'; // contains the footer
+include '../../../footer.php'; // contains the footer   
