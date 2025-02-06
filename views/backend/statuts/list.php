@@ -1,6 +1,8 @@
 <?php
 include '../../../header.php'; // contains the header and call to config.php
 
+
+
 //Load all statuts
 $statuts = sql_select("STATUT", "*");
 ?>
@@ -35,5 +37,6 @@ $statuts = sql_select("STATUT", "*");
         </div>
     </div>
 </div>
+
 <?php
 include '../../../footer.php'; // contains the footer

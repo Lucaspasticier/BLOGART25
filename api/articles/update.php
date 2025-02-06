@@ -12,8 +12,10 @@ $parag2Art = ctrlSaisies($_POST['parag2Art']);
 $libSsTitr2Art = ctrlSaisies($_POST['libSsTitr2Art']);
 $parag3Art = ctrlSaisies($_POST['parag3Art']);
 $libConclArt = ctrlSaisies($_POST['libConclArt']);
-$urlPhotArt = ctrlSaisies($_POST['urlPhotArt']);
+$numMotCle = $_POST['motCle'];
+$numArt = ctrlSaisies($_POST['numArt']);
 $numThem = ctrlSaisies($_POST['numThem']);
+$libThem = sql_select('THEMATIQUE', 'libThem', "numThem = '$numThem'");
 
 // VERIFIER FIELDS
 
@@ -26,22 +28,15 @@ $requiredFields = ['libTitrArt', 'dtCreaArt', 'libChapoArt', 'libAccrochArt', 'p
      }
   }
 
-// IMAGES TEST
-
-$nom_image = time() . '_' . $urlPhotArt;
-move_uploaded_file($urlPhotArt, 'src/uploads' . $nom_image);
-
 
 // VARIABLES POUR FONCTION UPDATE
-$set_art = "dtMajArt = '$dtMajArt',
-libTitrArt = '$libTitrArt',
+$set_art = "libTitrArt = '$libTitrArt',
 libChapoArt = '$libTitrArt', 
 libAccrochArt = '$libAccrochArt',
 parag1Art = '$parag1Art', 
 libSsTitr1Art = '$libSsTitr1Art',
 parag3Art = '$parag3Art',
 libConclArt = '$libConclArt', 
-urlPhotArt = '$nom_image', 
 numThem = '$numThem'";
 $where_num = "numArt = '$numArt'";
 $table_art = "ARTICLE";

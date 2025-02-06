@@ -11,15 +11,43 @@ $parag2Art = ctrlSaisies($_POST['parag2Art']);
 $libSsTitr2Art = ctrlSaisies($_POST['libSsTitr2Art']);
 $parag3Art = ctrlSaisies($_POST['parag3Art']);
 $libConclArt = ctrlSaisies($_POST['libConclArt']);
-$urlPhotArt = ctrlSaisies($_POST['urlPhotArt']);
-$numThem = ctrlSaisies($_POST['numThem']);
 
 
-sql_insert(
-    'article',
-    'libTitrArt, libChapoArt, libAccrochArt, parag1Art, libSsTitr1Art, parag2Art, libSsTitr2Art, parag3Art, libConclArt, urlPhotArt, numThem',
-    "'$libTitrArt', '$libChapoArt', '$libAccrochArt', '$parag1Art', '$libSsTitr1Art', '$parag2Art', '$libSsTitr2Art', '$parag3Art', '$libConclArt', '$urlPhotArt', '$numThem'"
-);
+$newMotCle = $_POST['motCle'];
+var_dump($newMotCle);
+var_dump(gettype($newMotCle));
+
+
+
+$numMotCle = $_POST['motCle'];
+
+
+// VERIFIER FIELDS
+
+$requiredFields = ['libTitrArt', 'libChapoArt', 'libAccrochArt', 'parag1Art', 'libSsTitr1Art', 'parag2Art', 'libSsTitr2Art', 'parag3Art', 'libConclArt',];
+
+  foreach ($requiredFields as $field) {
+   if (empty($_POST[$field])) {
+   echo "Veuillez remplir tous les champs du formulaire.";
+  exit();
+     }
+  }
+
+
+$numThem = ctrlSaisies($_POST['thematique']);
+
+
+sql_insert("ARTICLE", " libTitrArt, libChapoArt, libAccrochArt, parag1Art, libSsTitr1Art, parag2Art, libSsTitr2Art, parag3Art, libConclArt, numThem", 
+" '$libTitrArt', '$libChapoArt', '$libAccrochArt', '$parag1Art', '$libSsTitr1Art', '$parag2Art', '$libSsTitr2Art', '$parag3Art', '$libConclArt', '$numThem'");
+
+$lastArt = sql_select('ARTICLE', 'numArt', null, 'numArt DESC')[0]['numArt'];
+var_dump($lastArt);
+
+foreach ($numMotCle as $mot){
+    sql_insert('MOTCLEARTICLE', 'numArt, numMotCle', "$lastArt, $mot");
+}
 
 header('Location: ../../views/backend/articles/list.php');
+
+
 ?>

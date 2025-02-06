@@ -6,3 +6,5 @@
     $article2 = sql_select('ARTICLE', '*', "numArt = '2'")[0];
     $libTitrArt2 = $article2['libTitrArt'];
     $libChapoArt2 = $article2['libChapoArt'];
+    
+?>

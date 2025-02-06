@@ -1,5 +1,7 @@
 <?php
 include '../../../header.php';
+
+
 ?>
 
 <!-- Bootstrap form to create a new statut -->
@@ -17,8 +19,7 @@ include '../../../header.php';
                 </div>
                 <br />
                 <div class="form-group mt-2">
-                    <a href="list.php" class="btn btn-primary">List</a>
-                    <button type="submit" class="btn btn-success">Confirmer create ?</button>
+                    <button type="submit" class="btn btn-primary">Confirmer create ?</button>
                 </div>
             </form>
         </div>

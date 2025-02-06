@@ -1,11 +1,13 @@
 <?php
 include '../../../header.php';
 
+//seulement si tu es admi ou moderateur tu as accès à cette page
+
+
 if(isset($_GET['numArt'])){
     $numArt = $_GET['numArt'];
     $article = sql_select('ARTICLE INNER JOIN THEMATIQUE ON article.numThem = thematique.numThem', '*', "numArt = '$numArt'")[0];
     $libTitrArt = $article['libTitrArt'];
-    $dtCreaArt = $article['dtCreaArt'];
     $libChapoArt = $article['libChapoArt'];
     $libAccrochArt = $article['libAccrochArt'];
     $parag1Art = $article['parag1Art'];
