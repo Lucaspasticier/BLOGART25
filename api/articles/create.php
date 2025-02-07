@@ -18,7 +18,6 @@ var_dump($newMotCle);
 var_dump(gettype($newMotCle));
 
 
-
 $numMotCle = $_POST['motCle'];
 
 

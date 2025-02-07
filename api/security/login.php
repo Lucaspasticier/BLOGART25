@@ -44,6 +44,11 @@ if (!preg_match('/[0-9]/', $passMemb)){
 
 $passMemb2 = ctrlSaisies($_POST['passMemb2']); // DOIT ÊTRE IDENTIQUE A PASSWORD
 
+if ($passMemb != $passMemb2){ 
+    echo 'Les mots de passe doivent être identiques.<br>';
+    $passMemb = null;
+} 
+
 $hash_password = password_hash($passMemb, PASSWORD_DEFAULT);
 
 echo '<br>';
@@ -51,15 +56,43 @@ echo '<br>';
 
 //EMAIL
 $eMailMemb = ctrlSaisies($_POST['eMailMemb']);
+$eMailMemb2 = ctrlSaisies($_POST['eMailMemb2']); // DOIT Ê IDENTIQUE
+
+if (filter_var($eMailMemb, FILTER_VALIDATE_EMAIL)) {
+    echo("$eMailMemb est une adresse mail valide.<br>");
+  } else {
+    echo("$eMailMemb n'est pas une adresse mail valide.<br>");
+  }
+
+if ($eMailMemb != $eMailMemb2){
+    echo 'Les adresses mail doivent être identiques.<br>';
+    $eMailMemb = null;
+} 
+
+//ACCORD DONNEES
+$accordMemb = ctrlSaisies($_POST['accordMemb']);
+
+if ($accordMemb !== 'OUI') {
+    echo 'Veuillez accepter de partager vos données.<br>';
+} else {
+    $accordMemb = TRUE;
+}
+
+//STATUT
+$numStat = ctrlSaisies($_POST['numStat']);
 
 echo '<br>';
 
 
-if (isset($pseudoMemb,$passMemb)){
+echo '<br>';
+
+
+
+if (isset($pseudoMemb, $prenomMemb, $nomMemb, $passMemb, $eMailMemb, $accordMemb, $numStat)){
             //Vous pouvez le faire
             sql_insert('MEMBRE', 
-            'pseudoMemb, passMemb', 
-            "'$pseudoMemb', '$hash_password', '$eMailMemb', '$accordMemb', '$numStat'");
+            'prenomMemb, nomMemb, pseudoMemb, passMemb, eMailMemb, accordMemb, numStat', 
+            "'$prenomMemb', '$nomMemb', '$pseudoMemb', '$hash_password', '$eMailMemb', '$accordMemb', '$numStat'");
     header('Location: ../../views/backend/members/list.php');
 
 } else {

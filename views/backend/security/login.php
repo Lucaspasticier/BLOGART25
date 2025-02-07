@@ -18,25 +18,22 @@ if (isset($_GET['numCom'])){
 <div class="container">
     <div class="row">
         <div class="col-md-12">
-            <h1>Création nouveau Membre</h1>
+            <h1>Se connecter</h1>
         </div>
         <div class="col-md-12">
             <!-- Form to create a new member -->
             <form action="<?php echo ROOT_URL . '/api/members/create.php' ?>" method="post" id="formCreate">
                 <div class="form-group">
                     <!-- PSEUDO -->
-                    <label for="pseudoMemb">Pseudo du membre (non modifiable)</label>
+                    <label for="pseudoMemb">Pseudo</label>
                     <input id="pseudoMemb" name="pseudoMemb" class="form-control" type="text" autofocus="autofocus" />
-                    <p>(entre 6 et 70 caractères)</p>
-
-                    <label for="passMemb">Mot de passe du membre</label>
+                    <label for="passMemb">Mot de passe</label>
                     <input id="passMemb" name="passMemb" class="form-control" type="password" autofocus="autofocus" />
-                    <p>(Entre 8 et 15 car., au - une majuscule, une minuscule, un chiffre, car. spéciaux acceptés)</p>
                     <button type="button" id="afficher"  class="btn btn-secondary">Afficher le mot de passe</button><br><br>
                 </div>
                 <br />
                 <div class="form-group mt-2">
-                    <button type="submit" class="btn btn-primary">Confirmer create ?</button>
+                    <button type="submit" class="btn btn-primary">Connexion</button>
                 </div>
             </form>
         </div>
